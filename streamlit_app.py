@@ -1,3 +1,20 @@
+import streamlit.elements.image as image_module
+import base64, io
+
+def dummy_image_to_url(*args, **kwargs):
+    # Assume the first argument is the PIL image.
+    image = args[0]
+    fmt = kwargs.get("format", "PNG")
+    buffered = io.BytesIO()
+    image.save(buffered, format=fmt)
+    img_bytes = buffered.getvalue()
+    b64 = base64.b64encode(img_bytes).decode("utf-8")
+    return f"data:image/{fmt.lower()};base64,{b64}"
+
+if not hasattr(image_module, "image_to_url"):
+    image_module.image_to_url = dummy_image_to_url
+
+
 import streamlit as st
 from streamlit_drawable_canvas import st_canvas
 import pygame, sys, random, time, json
