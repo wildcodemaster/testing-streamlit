@@ -3,6 +3,9 @@ from streamlit_drawable_canvas import st_canvas
 import pygame, sys, random, time, json
 import numpy as np
 from PIL import Image
+import streamlit.elements.image as image_module
+if not hasattr(image_module, "image_to_url"):
+    image_module.image_to_url = lambda image: image
 
 # ─────────────────────────────
 # Constants & Configuration
