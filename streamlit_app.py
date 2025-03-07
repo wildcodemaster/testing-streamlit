@@ -610,7 +610,12 @@ def main():
                 game.dragged_tiles.clear()
 
     # Display the updated game image.
-    st.image(game_image, caption="Farming Game", use_column_width=True)
+    import io
+    buf = io.BytesIO()
+    game_image.save(buf, format='PNG')
+    img_bytes = buf.getvalue()
+    st.image(img_bytes, caption="Farming Game", use_column_width=True)
+
 
 # Optionally, you can enable auto‑refresh (for example, every 100 ms) to simulate a real‑time game loop.
 # Uncomment the following lines if you wish to enable auto‑refresh.
