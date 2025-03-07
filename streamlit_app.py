@@ -595,7 +595,7 @@ def main():
     game_image = Image.fromarray(arr)
 
     # Display the canvas with the game image as background.
-    canvas_result = st_canvas(
+    canvas_result = dummy_image_to_url(
         fill_color="rgba(0,0,0,0)",
         stroke_width=5,
         stroke_color="#000000",
