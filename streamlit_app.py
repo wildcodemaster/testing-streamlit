@@ -1,5 +1,5 @@
 # Monkey-patch for streamlit.elements.image.image_to_url
-import streamlit.elements.image as image_module
+import streamlit.elements.lib.image_utils as image_module
 import base64, io
 from PIL import Image
 
